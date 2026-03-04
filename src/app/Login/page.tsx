@@ -6,10 +6,7 @@ import loginSVG from '../../../public/login.svg'
 import { useForm } from "react-hook-form"
 import z from "zod";
 import { loginSchema } from "@/src/utils/schemas/loginSchema";
-import { Span } from "next/dist/trace";
 import { zodResolver } from "@hookform/resolvers/zod";
-
-
 
 type LoginInputdata = z.infer<typeof loginSchema>;
 
@@ -45,10 +42,10 @@ export default function Login() {
                         id="email"
                         type="email"
                         placeholder="E-mail"
-                        {...register('email' )}
+                        {...register('email')}
                     />
 
-                    {errors?.email && <span className="text-sm text-red-600">{errors.email.message}</span>}
+                    {errors?.email && <span className="text-xs text-red-600">{errors.email.message}</span>}
                 </div>
 
                 <div className="flex flex-col gap-4">
@@ -60,7 +57,7 @@ export default function Login() {
                         {...register('password')}
                     />
 
-                    {errors?.password && <span className="text-sm text-red-600">{errors.password.message}</span>}
+                    {errors?.password && <span className="text-xs text-red-600">{errors.password.message}</span>}
                 </div>
 
                 <button className="bg-slate-400 hover:bg-slate-500 transition-colors text-white w-full px-3 py-2 rounded-md" type="submit">Login</button>
